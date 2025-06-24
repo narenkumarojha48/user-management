@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Header from './components/Header';
+import UserDetail from './components/UserDetail';
+import CreateUser from './components/CreateUser';
+import UsersList from './components/UsersList';
+import NotFound from './components/NotFound';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+          <Routes>
+            <Route path='/' element={<UsersList/>} />
+            <Route path='/users'>
+              <Route path='createUser' element={<CreateUser/>} />
+              <Route path='editUser/:userid' element={<CreateUser/>} />
+              <Route path='userDetail/:userid' element={<UserDetail/>} />
+              {/* <Route path='deleteUser/:userid' element={<CreateUser/>} /> */}
+            </Route>
+            <Route path='*' element={<NotFound/>} />
+          </Routes>
     </div>
   );
 }
