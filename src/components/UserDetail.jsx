@@ -14,7 +14,7 @@ const UserDetail = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
   const { userid } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
@@ -31,7 +31,7 @@ const UserDetail = () => {
         setError(err.response?.data?.errors?.message);
         console.log("Error", err);
       });
-  }, []);
+  }, [userid]);
      if(loading){
       return(<>
          <div className='d-flex justify-content-center align-items-center'>
@@ -39,7 +39,7 @@ const UserDetail = () => {
         </div>
       </>)
     }
-  return <div>UserDetail :{userid}
+  return <div>UserDetail 
   {error ? <p className='bg-danger text-white w-25'>{ JSON.stringify(error)}</p>:null}
    <Card style={{ width: '18rem' }}>
       <Card.Body>
