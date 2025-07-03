@@ -4,9 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
-import { usersSchema } from "../utils/UserSchema";
 import { useFormik } from "formik";
-const URL = "http://localhost:4000/api/v1/users/";
 const CreateUser = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -17,7 +15,6 @@ const CreateUser = () => {
       password: "",
       checkme: false,
     },
-    //  validationSchema:usersSchema,
     onSubmit: (values, { setSubmitting }) => {
       axios
         .post(process.env.REACT_APP_DATABASE_URL, { ...values })

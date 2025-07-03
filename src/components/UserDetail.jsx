@@ -40,8 +40,8 @@ const UserDetail = () => {
       </>)
     }
   return <div>UserDetail :{userid}
+  {error ? <p className='bg-danger text-white w-25'>{ JSON.stringify(error)}</p>:null}
    <Card style={{ width: '18rem' }}>
-      
       <Card.Body>
         <Card.Title>User Detail</Card.Title>
         <Card.Text>
@@ -59,7 +59,6 @@ const UserDetail = () => {
         <Button variant="primary" onClick={()=>navigate("/")}>Back</Button>
       </Card.Body>
     </Card>
-  
   </div>;
 };
 

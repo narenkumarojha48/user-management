@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
@@ -17,7 +16,7 @@ const UpdateUser = () => {
     .catch(err=>{setLoading(false);
         setError(err.response?.data?.errors?.message);
         console.log("Error",err)})
-  },[]);
+  },[userid]);
      function handleSubmit(e){
         e.preventDefault();
         let user = {name:userdata.name,username:userdata.username,email:userdata.email,password:userdata.password}

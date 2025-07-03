@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import Header from './components/Header';
 import UserDetail from './components/UserDetail';
 import UpdateUser from './components/UpdateUser';
